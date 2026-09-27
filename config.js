@@ -12,9 +12,9 @@ window.TECHBUILD_CONFIG = {
     standard: {
       id: "standard",
       title: "Tesla Investment Website",
-      price: 150000,
+      price: 100,
       oldPrice: 250000,
-      minDeposit: 50000,
+      minDeposit: 100,
       logo: "assets/tesla-investment-logo.svg",
       tag: "Ready to customize",
       description: "A complete investment website package with client accounts, secure login, investment balance and earnings views, plus a dedicated admin dashboard for managing users, accounts and investment plans.",
