@@ -217,6 +217,9 @@
     const refEl = qs("#payment-reference");
     const statusEl = qs("#verify-status");
     const wa = qs("#whatsapp-success");
+    const stateEl = document.getElementById("payment-state");
+const titleEl = document.getElementById("payment-title");
+if (wa) wa.style.display = "none";
     if (!refEl) return;
     refEl.textContent = ref || "Not provided";
     const order = JSON.parse(sessionStorage.getItem("techbuild_order") || "null");
@@ -228,25 +231,49 @@
       const r = await fetch(`/api/verify-payment?reference=${encodeURIComponent(ref)}`);
       const d = await r.json();
       if (d.success) {
-        const paymentStatus = String(d.status || "").toLowerCase();
+  const paymentStatus = String(d.status || "").toLowerCase();
 
-        if (paymentStatus === "success" || paymentStatus === "successful") {
+  if (paymentStatus === "success" || paymentStatus === "successful") {
 
-          statusEl.textContent = `Payment status: SUCCESS • Amount: ${money(Number(d.amount || 0))}`;
-          statusEl.className = "verify-status success";
+    if (stateEl) stateEl.textContent = "Payment successful";
+    if (titleEl) titleEl.textContent = "Payment confirmed.";
 
-        } else if (paymentStatus === "pending" || paymentStatus === "processing") {
+    if (wa) wa.style.display = "";
 
-          statusEl.textContent = `Payment status: ${paymentStatus.toUpperCase()} • Waiting for payment confirmation.`;
-          statusEl.className = "verify-status";
+    statusEl.textContent =
+      `Payment status: SUCCESS • Amount: ${money(Number(d.amount || 0))}`;
 
-        } else {
+    statusEl.className = "verify-status success";
 
-          statusEl.textContent = `Payment status: ${paymentStatus.toUpperCase() || "CANCELLED"} • Payment was not completed.`;
-          statusEl.className = "verify-status";
+  } else if (paymentStatus === "pending" || paymentStatus === "processing") {
 
-        }
-      } else {
+    if (stateEl) stateEl.textContent = "Payment pending";
+    if (titleEl) titleEl.textContent = "Waiting for payment confirmation.";
+
+    if (wa) wa.style.display = "none";
+
+    statusEl.textContent =
+      `Payment status: ${paymentStatus.toUpperCase()} • Waiting for payment confirmation.`;
+
+    statusEl.className = "verify-status";
+
+  } else {
+
+    if (stateEl) stateEl.textContent = "Payment cancelled";
+    if (titleEl) titleEl.textContent = "Payment was not completed.";
+
+    if (wa) wa.style.display = "none";
+
+    statusEl.textContent =
+      `Payment status: ${paymentStatus.toUpperCase() || "CANCELLED"} • Payment was not completed.`;
+
+    statusEl.className = "verify-status";
+
+  }
+
+} else {
+
+  if (wa) wa.style.display = "none";
         statusEl.textContent = d.message || "Payment is not yet confirmed. Please send your proof on WhatsApp.";
       }
     } catch {
