@@ -5,7 +5,7 @@ module.exports = async function handler(req, res) {
 
   try {
     const {productId, productTitle, amount, name, email} = req.body || {};
-    const prices = { standard: {price:100,min:100}, custom: {price:180000,min:70000} };
+    const prices = { standard: {price:150000,min:50000}, custom: {price:180000,min:70000} };
     if (!prices[productId]) return res.status(400).json({message:"Invalid package."});
     const n = Number(amount);
     const cfg = prices[productId];
