@@ -228,8 +228,24 @@
       const r = await fetch(`/api/verify-payment?reference=${encodeURIComponent(ref)}`);
       const d = await r.json();
       if (d.success) {
-        statusEl.textContent = `Payment status: ${String(d.status || "success").toUpperCase()} • Amount: ${money(Number(d.amount || 0))}`;
-        statusEl.className = "verify-status success";
+        const paymentStatus = String(d.status || "").toLowerCase();
+
+        if (paymentStatus === "success" || paymentStatus === "successful") {
+
+          statusEl.textContent = `Payment status: SUCCESS • Amount: ${money(Number(d.amount || 0))}`;
+          statusEl.className = "verify-status success";
+
+        } else if (paymentStatus === "pending" || paymentStatus === "processing") {
+
+          statusEl.textContent = `Payment status: ${paymentStatus.toUpperCase()} • Waiting for payment confirmation.`;
+          statusEl.className = "verify-status";
+
+        } else {
+
+          statusEl.textContent = `Payment status: ${paymentStatus.toUpperCase() || "CANCELLED"} • Payment was not completed.`;
+          statusEl.className = "verify-status";
+
+        }
       } else {
         statusEl.textContent = d.message || "Payment is not yet confirmed. Please send your proof on WhatsApp.";
       }
