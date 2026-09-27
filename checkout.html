@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b63f6">
+  <title>Secure Checkout — TechBuild NG</title>
+  <link rel="icon" href="assets/brand-logo.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="container checkout-page">
+    <div class="checkout-head">
+      <a class="back-link" href="index.html">← Back</a>
+      <div><span class="eyebrow">Secure checkout</span><h1>Complete your order</h1><p>Choose full payment or a valid starting deposit.</p></div>
+    </div>
+
+    <div class="checkout-layout">
+      <section class="checkout-card">
+        <div class="step-title"><span>1</span><div><h2>Order details</h2><p id="checkout-product-name">Selected package</p></div></div>
+
+        <div class="payment-choice">
+          <button type="button" class="choice active" data-mode="full"><span>Pay in full</span><strong id="full-price">₦150,000</strong><small>Complete the package payment now.</small></button>
+          <button type="button" class="choice" data-mode="deposit"><span>Pay a deposit</span><strong id="deposit-label">From ₦50,000</strong><small id="deposit-help">Start your order with the minimum deposit.</small></button>
+        </div>
+
+        <div id="amount-box" class="amount-box hidden">
+          <label for="custom-amount">Enter payment amount</label>
+          <div class="money-input"><span>₦</span><input id="custom-amount" inputmode="numeric" autocomplete="off" placeholder="50,000"></div>
+          <div class="amount-range"><span id="min-hint"></span><span id="max-hint"></span></div>
+          <p id="amount-error" class="form-error" role="alert"></p>
+        </div>
+
+        <form id="checkout-form">
+          <div class="form-grid">
+            <label>Full name<input required id="customer-name" name="name" autocomplete="name" placeholder="Your full name"></label>
+            <label>Email address<input required id="customer-email" type="email" name="email" autocomplete="email" placeholder="you@example.com"></label>
+          </div>
+          <label class="consent"><input type="checkbox" required> <span>I understand this payment is for the selected website package and customization scope described on this page.</span></label>
+          <button class="btn btn-primary btn-full btn-large" type="submit" id="pay-button">Continue to secure payment <span>→</span></button>
+          <p class="secure-note">🔒 Payment is initialized server-side. Your KoraPay secret key is never placed in the browser.</p>
+        </form>
+      </section>
+
+      <aside class="order-summary">
+        <span class="summary-label">Order summary</span>
+        <div class="summary-logo"><img id="summary-logo" src="assets/tesla-investment-logo.svg" alt=""></div>
+        <h2 id="summary-title">Tesla Investment Website</h2>
+        <p id="summary-description"></p>
+        <div class="summary-line"><span>Selected amount</span><strong id="summary-amount">₦150,000</strong></div>
+        <div class="proof-box">
+          <strong>After payment</strong>
+          <p>Click the WhatsApp button to send your payment proof and order details so work can get started.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <div id="chat-widget"></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
