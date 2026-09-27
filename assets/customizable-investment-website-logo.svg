@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+<title>TechBuild NG — Customizable Investment Website</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1677FF"/><stop offset="1" stop-color="#0849C6"/></linearGradient></defs>
+<rect width="240" height="240" rx="44" fill="#F2F7FF"/>
+<rect x="32" y="32" width="176" height="176" rx="34" fill="url(#g)"/>
+<rect x="63" y="67" width="114" height="106" rx="13" fill="#fff"/>
+<path d="M78 88h84M78 108h48M78 128h84M78 148h53" stroke="#1677FF" stroke-width="9" stroke-linecap="round"/>
+<circle cx="157" cy="108" r="15" fill="#B9D7FF" stroke="#fff" stroke-width="4"/>
+</svg>
