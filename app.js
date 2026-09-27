@@ -79,7 +79,7 @@
             <div class="modal-price"><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div>
             <div class="modal-actions">
               <a class="btn btn-primary" href="product.html?product=${p.id}">View details & checkout →</a>
-              <a class="btn btn-ghost" target="_blank" rel="noopener" href="${waLink("Hello TechBuild NG, I want details about the " + p.title + ".")}">Ask on WhatsApp</a>
+            
             </div>
           </div>`;
         modal.classList.add("open");
