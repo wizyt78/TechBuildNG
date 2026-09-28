@@ -55,11 +55,14 @@
   }
 
   function setupVideo() {
-    const shell = qs("#video-shell");
-    if (!shell || !C.videoVimeoUrl) return;
+    if (!C.videoVimeoUrl) return;
     const match = C.videoVimeoUrl.match(/(?:vimeo\.com\/(?:video\/)?)(\d+)/);
     if (!match) return;
-    shell.innerHTML = `<iframe src="https://player.vimeo.com/video/${match[1]}" title="TechBuild NG website walkthrough" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+    const player = `<iframe src="https://player.vimeo.com/video/${match[1]}" title="TechBuild NG website walkthrough" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+    ["#hero-video-shell", "#video-shell"].forEach(selector => {
+      const shell = qs(selector);
+      if (shell) shell.innerHTML = player;
+    });
   }
 
   function setupProductModal() {
@@ -116,19 +119,19 @@
         <div class="video-feature-card video-feature-card-detail">
           <div class="video-card-top">
             <span class="video-live-dot"></span>
-            <span class="video-card-label">FULL WEBSITE WALKTHROUGH</span>
+            <span class="video-card-label">PLATFORM WALKTHROUGH</span>
             <span class="video-card-tag">VIMEO VIDEO</span>
           </div>
-          <div class="video-shell" id="detail-video-shell"><div class="video-placeholder"><div class="play">▶</div><strong>Watch the full website walkthrough</strong><span>See the client dashboard, admin tools, and website features.</span></div></div>
+          <div class="video-shell" id="detail-video-shell"><div class="video-placeholder"><div class="play">▶</div><strong>Watch the full platform walkthrough</strong><span>Explore the client dashboard and admin experience.</span></div></div>
           <div class="video-card-bottom">
-            <div><strong>Explore the website in action</strong><span>Client dashboard · Admin dashboard · Website features</span></div>
+            <div><strong>See the platform in action</strong><span>Client dashboard · Admin tools · Mobile experience</span></div>
             <span class="video-duration">FULL WALKTHROUGH</span>
           </div>
         </div>
-        <h3>Preview the ready-made investment website included with this package.</h3>
-        <p>Explore the client dashboard, admin dashboard, and website features, then open the live demo below.</p>
-        <p class="live-question">Want to see the website live?</p>
-        <a class="btn btn-primary" target="_blank" rel="noopener" href="${C.liveWebsiteUrl}">Open the live demo ↗</a>
+        <h3>Watch the full video of the website included with the package.</h3>
+        <p>See the client-facing website and how the admin dashboard works, then open the live website below.</p>
+        <p class="live-question">Do you want to see the website live?</p>
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="${C.liveWebsiteUrl}">Click here to open the live website ↗</a>
       </div>`;
     const tab = qs("[data-live-tab]");
     const panel = qs("#live-tab-panel");
