@@ -113,7 +113,18 @@
         <button class="tab" data-live-tab>Live website</button>
       </div>
       <div class="live-tab-panel" id="live-tab-panel">
-        <div class="video-shell" id="detail-video-shell"><div class="video-placeholder"><div class="play">▶</div><strong>Watch the full website walkthrough</strong><span>Replace VIDEO_VIMEO_URL in config.js with your Vimeo video.</span></div></div>
+        <div class="video-feature-card video-feature-card-detail">
+          <div class="video-card-top">
+            <span class="video-live-dot"></span>
+            <span class="video-card-label">PLATFORM WALKTHROUGH</span>
+            <span class="video-card-tag">VIMEO VIDEO</span>
+          </div>
+          <div class="video-shell" id="detail-video-shell"><div class="video-placeholder"><div class="play">▶</div><strong>Watch the full platform walkthrough</strong><span>Explore the client dashboard and admin experience.</span></div></div>
+          <div class="video-card-bottom">
+            <div><strong>See the platform in action</strong><span>Client dashboard · Admin tools · Mobile experience</span></div>
+            <span class="video-duration">FULL WALKTHROUGH</span>
+          </div>
+        </div>
         <h3>Watch the full video of the website included with the package.</h3>
         <p>See the client-facing website and how the admin dashboard works, then open the live website below.</p>
         <p class="live-question">Do you want to see the website live?</p>
