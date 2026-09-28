@@ -3,7 +3,7 @@ window.TECHBUILD_CONFIG = {
   whatsappNumber: "+491771371042",
   liveWebsiteUrl: "https://wizyt78.github.io/Elonmusk-Tesla/",
   // Paste the full Vimeo URL here when your walkthrough video is ready.
-  videoVimeoUrl: "",
+  videoVimeoUrl: "https://vimeo.com/1230761431",
   currency: "NGN",
   korapayEnabled: true,
   // Frontend calls /api/initialize-payment. Never put your Kora secret key here.
