@@ -78,7 +78,7 @@
           <div class="product-media"><img src="${p.logo}" alt="${p.title} preview" loading="lazy"><span class="media-badge">${p.tag}</span></div>
           <div class="product-body"><div class="product-kicker">${p.category}</div><h3>${p.title}</h3><p>${p.description}</p>
             <ul class="feature-list">${p.features.slice(0,4).map(f=>`<li>${f}</li>`).join("")}</ul>
-            <div class="price-row"><div><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div><span class="save-pill">From ${money(p.minDeposit)} deposit</span></div>
+            <div class="price-row"><div><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
             <button class="btn btn-primary btn-full" data-open-product="${p.id}">View package <span>→</span></button>
           </div>
         </article>`).join("");
