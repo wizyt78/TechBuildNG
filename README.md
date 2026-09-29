@@ -88,3 +88,7 @@ The floating WhatsApp button appears on all pages and the success page creates a
 
 KoraPay API documentation:
 https://docs.korapay.com/
+
+
+## Product sales figures
+The product cards and product detail pages display the configured `salesCount` values in `config.js`. These are static starting/display figures, not a database-backed live sales ledger. The current KoraPay webhook does not persist paid orders, so global automatic sales counting requires a database-backed order record and verified, idempotent payment updates.
