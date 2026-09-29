@@ -12,6 +12,7 @@ window.TECHBUILD_CONFIG = {
   packages: {
   "socialmedia": {
     "id": "socialmedia",
+    "salesCount": 578,
     "title": "Buy All Social Media Accounts & Foreign Numbers Website",
     "price": 100000,
     "oldPrice": 188000,
@@ -34,6 +35,7 @@ window.TECHBUILD_CONFIG = {
   },
   "standard": {
     "id": "standard",
+    "salesCount": 66,
     "title": "Tesla Investment Website",
     "price": 150000,
     "oldPrice": 250000,
@@ -55,6 +57,7 @@ window.TECHBUILD_CONFIG = {
   },
   "custom": {
     "id": "custom",
+    "salesCount": 26,
     "title": "Custom Investment Website",
     "price": 180000,
     "oldPrice": 300000,
@@ -76,6 +79,7 @@ window.TECHBUILD_CONFIG = {
   },
   "banking": {
     "id": "banking",
+    "salesCount": 143,
     "title": "Banking Website with Admin Dashboard",
     "price": 180000,
     "oldPrice": 350000,
@@ -97,6 +101,7 @@ window.TECHBUILD_CONFIG = {
   },
   "cars": {
     "id": "cars",
+    "salesCount": 238,
     "title": "Car Sales Website",
     "price": 140000,
     "oldPrice": 200000,
@@ -118,6 +123,7 @@ window.TECHBUILD_CONFIG = {
   },
   "tracking": {
     "id": "tracking",
+    "salesCount": 119,
     "title": "Parcel & Delivery Tracking Website",
     "price": 80000,
     "oldPrice": 150000,
@@ -139,6 +145,7 @@ window.TECHBUILD_CONFIG = {
   },
   "clothing": {
     "id": "clothing",
+    "salesCount": 386,
     "title": "Clothing & Online Store",
     "price": 157000,
     "oldPrice": 300000,
@@ -160,6 +167,7 @@ window.TECHBUILD_CONFIG = {
   },
   "celebrity": {
     "id": "celebrity",
+    "salesCount": 765,
     "title": "Custom Celebrity-Inspired Merchandise Store",
     "price": 125000,
     "oldPrice": 250000,
@@ -181,6 +189,7 @@ window.TECHBUILD_CONFIG = {
   },
   "truck": {
     "id": "truck",
+    "salesCount": 87,
     "title": "Truck Sales Website",
     "price": 160000,
     "oldPrice": 250000,
@@ -202,6 +211,7 @@ window.TECHBUILD_CONFIG = {
   },
   "ecommerce": {
     "id": "ecommerce",
+    "salesCount": 452,
     "title": "General E-commerce Website",
     "price": 150000,
     "oldPrice": 280000,
