@@ -10,6 +10,27 @@ window.TECHBUILD_CONFIG = {
   korapayEnabled: true,
   apiBase: "",
   packages: {
+  "socialmedia": {
+    "id": "socialmedia",
+    "title": "Buy Social Media Accounts",
+    "price": 100000,
+    "oldPrice": 188000,
+    "minDeposit": 50000,
+    "logo": "assets/social-media-store.svg",
+    "tag": "Digital services",
+    "category": "Social Media Account Marketplace",
+    "description": "A social media marketplace for account-related digital packages and promotional services, with clear listings, customer enquiries, and order support. Verify availability and platform rules before purchase.",
+    "detailTitle": "Buy Social Media Accounts",
+    "detailDescription": "A professional storefront for social media account-related digital packages and promotional services. Browse package listings, send enquiries, and organize orders. Any account transfer must comply with the relevant platform rules; do not share passwords, private credentials, or personal data.",
+    "features": [
+      "Social media package listings and pricing",
+      "Customer enquiry and order forms",
+      "Service descriptions and campaign options",
+      "Admin interface for service listings",
+      "Branding and content customization",
+      "Responsive mobile and desktop layout"
+    ]
+  },
   "standard": {
     "id": "standard",
     "title": "Tesla Investment Website",
@@ -82,9 +103,9 @@ window.TECHBUILD_CONFIG = {
     "logo": "assets/car-sales.svg",
     "tag": "Vehicle marketplace",
     "category": "Car Sales Website",
-    "description": "A vehicle dealership website to showcase cars, publish listing details, receive buyer enquiries, and manage inventory through an admin dashboard, with checkout flow options.",
+    "description": "A vehicle dealership website to showcase cars, publish listing details, receive buyer enquiries, and manage inventory through an admin dashboard. Checkout information can list wire transfer, Cash App, and PayPal, subject to your merchant setup.",
     "detailTitle": "Car Sales Website with Admin Dashboard",
-    "detailDescription": "A professional car dealership website for displaying vehicle photos, specifications, prices, and availability. Includes buyer enquiry and order flows, a live-chat contact entry point, and an admin dashboard concept for managing vehicle listings and site content. Payment methods depend on the final checkout setup.",
+    "detailDescription": "A professional car dealership website for displaying vehicle photos, specifications, prices, and availability. Includes buyer enquiry and order flows, a live-chat contact entry point, and an admin dashboard concept for managing vehicle listings and site content. The website can display wire transfer, Cash App, and PayPal as payment options when configured for your business.",
     "features": [
       "Vehicle listings with photos and specifications",
       "Search and browse inventory",
@@ -145,9 +166,9 @@ window.TECHBUILD_CONFIG = {
     "logo": "assets/celebrity-store.svg",
     "tag": "Custom merchandise",
     "category": "Custom Merchandise Store",
-    "description": "A customizable apparel and accessories storefront for original fan-inspired designs, including clothing, shoes, and bags for different styles and audiences.",
+    "description": "A customizable apparel and accessories storefront for original fan-inspired designs, including clothing, shoes, and bags for different styles and audiences. Payment information can include wire transfer, Cash App, and PayPal, subject to merchant setup.",
     "detailTitle": "Custom Merchandise Store",
-    "detailDescription": "A stylish online store for customizable, original fan-inspired merchandise. Present apparel, shoes, bags, and accessories for different audiences, with product options, order collection, and a checkout flow. Use only images, names, and designs you have permission to use.",
+    "detailDescription": "A stylish online store for customizable, original fan-inspired merchandise. Present apparel, shoes, bags, and accessories for different audiences, with product options, order collection, and a checkout flow. Payment options can include wire transfer, Cash App, and PayPal when configured. Use only images, names, and designs you have permission to use.",
     "features": [
       "Clothing, shoes, bags, and accessories catalog",
       "Product options and customization fields",
@@ -197,27 +218,6 @@ window.TECHBUILD_CONFIG = {
       "Order management interface",
       "Mobile and desktop responsive layout",
       "Expandable for additional store features"
-    ]
-  },
-  "socialmedia": {
-    "id": "socialmedia",
-    "title": "Social Media Services Store",
-    "price": 100000,
-    "oldPrice": 188000,
-    "minDeposit": 50000,
-    "logo": "assets/social-media-store.svg",
-    "tag": "Digital services",
-    "category": "Social Media Store",
-    "description": "A storefront for legitimate social media services, campaign packages, and digital marketing offerings, with service listings and order enquiries.",
-    "detailTitle": "Social Media Services Store",
-    "detailDescription": "A professional storefront for legitimate social media management, content creation, campaign, and digital marketing services. Publish service packages, collect customer enquiries, and organize orders. It is not a marketplace for trading personal accounts, login credentials, or phone numbers.",
-    "features": [
-      "Service packages and pricing pages",
-      "Customer enquiry and order forms",
-      "Service descriptions and campaign options",
-      "Admin interface for service listings",
-      "Branding and content customization",
-      "Responsive mobile and desktop layout"
     ]
   }
 }
