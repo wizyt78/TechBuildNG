@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b63f6">
-  <meta name="description" content="TechBuild NG — premium investment website templates and custom builds.">
-  <title>TechBuild NG — Premium Investment Website Templates</title>
+  <meta name="description" content="Explore professional ready-made website packages for banking, investment, vehicle sales, tracking, online stores, and custom digital businesses.">
+  <title>TechBuild NG — Ready-Made Websites & Custom Builds</title>
   <link rel="icon" href="assets/brand-logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,15 +19,15 @@
     <section class="hero container">
       <div class="hero-copy">
         <span class="eyebrow"><span class="dot"></span> Premium digital builds</span>
-        <h1>Launch a polished investment website without starting from zero.</h1>
-        <p class="hero-lead">Professional client-facing pages, secure account flows, portfolio dashboards and a dedicated admin experience — packaged into a ready-to-customize website.</p>
+        <h1>Launch your next business website with a ready-made foundation.</h1>
+        <p class="hero-lead">Explore professionally designed website packages for banking-style platforms, investment portals, vehicle sales, tracking, online stores, and custom digital businesses.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#packages">Explore packages <span>→</span></a>
-          <a class="btn btn-ghost" href="#live-demo">Watch the live walkthrough</a>
+          <a class="btn btn-primary" href="#packages">Explore website catalog <span>→</span></a>
+          <a class="btn btn-ghost" href="#live-demo">Watch the new website product video</a>
         </div>
         <div class="trust-row">
           <span>✓ Mobile + desktop ready</span>
-          <span>✓ Admin dashboard included</span>
+          <span>✓ Admin options on selected packages</span>
           <span>✓ Secure checkout option</span>
         </div>
       </div>
@@ -39,8 +39,8 @@
         <div class="hero-video-shell video-shell" id="hero-video-shell">
           <div class="video-placeholder">
             <div class="play">▶</div>
-            <strong>Watch the website walkthrough</strong>
-            <span>Client dashboard · Admin dashboard · Investment features</span>
+            <strong>Watch the new website product video</strong>
+            <span>Website previews · Storefronts · Platform features</span>
           </div>
         </div>
         <div class="hero-card-footer"><strong>See the platform in action.</strong><a href="#live-demo">View walkthrough details <span aria-hidden="true">→</span></a></div>
@@ -49,77 +49,31 @@
 
     <section id="packages" class="section container">
       <div class="section-head">
-        <div>
-          <span class="eyebrow">Choose your build</span>
-          <h2>Two clear ways to get started.</h2>
-        </div>
-        <p>Transparent pricing, flexible deposits and a guided checkout.</p>
+        <div><span class="eyebrow">Ready-made website catalog</span><h2>Find the right website for your business.</h2></div>
+        <p>Browse the catalog, compare package features, and choose a website to customize.</p>
       </div>
-
-      <div class="product-grid">
-        <article class="product-card" data-product="standard">
-          <div class="product-media">
-            <img src="assets/tesla-investment-logo.svg" alt="Tesla Investment Website logo">
-            <span class="media-badge">Ready to customize</span>
-          </div>
-          <div class="product-body">
-            <div class="product-kicker">Investment Website</div>
-            <h3>Tesla Investment Website</h3>
-            <p>Complete investment website package with client accounts, portfolio balance, earnings monitoring and admin management.</p>
-            <ul class="feature-list">
-              <li>Client registration & secure login</li>
-              <li>Investment balance & earnings views</li>
-              <li>Admin dashboard & account management</li>
-              <li>Investment plan management</li>
-            </ul>
-            <div class="price-row">
-              <div><span class="old-price">₦250,000</span><strong>₦150,000</strong></div>
-              <span class="save-pill">Save ₦100k</span>
-            </div>
-            <button class="btn btn-primary btn-full" data-open-product="standard">View package <span>→</span></button>
-          </div>
-        </article>
-
-        <article class="product-card featured" data-product="custom">
-          <div class="featured-ribbon">Most flexible</div>
-          <div class="product-media">
-            <img src="assets/custom-build-logo.svg" alt="Custom investment website logo">
-            <span class="media-badge">Custom build</span>
-          </div>
-          <div class="product-body">
-            <div class="product-kicker">Investment Website</div>
-            <h3>Custom Investment Website</h3>
-            <p>Start from the same professional foundation and request changes such as colors, sections, features or branding.</p>
-            <ul class="feature-list">
-              <li>Everything in the ready package</li>
-              <li>Branding & color customization</li>
-              <li>Requested content or section changes</li>
-              <li>Flexible scope discussion after order</li>
-            </ul>
-            <div class="price-row">
-              <div><span class="old-price">₦300,000</span><strong>₦180,000</strong></div>
-              <span class="save-pill">Save ₦120k</span>
-            </div>
-            <button class="btn btn-primary btn-full" data-open-product="custom">View package <span>→</span></button>
-          </div>
-        </article>
+      <div class="catalog-toolbar">
+        <label class="catalog-search"><span aria-hidden="true">⌕</span><input id="product-search" type="search" placeholder="Search websites by name or category…" aria-label="Search website packages"></label>
+        <span class="catalog-count" id="catalog-count">10 website packages</span>
       </div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      <p class="catalog-empty hidden" id="catalog-empty">No website packages match your search. Try another name or category.</p>
     </section>
 
     <section id="included" class="section section-soft">
       <div class="container">
         <div class="section-head centered">
           <span class="eyebrow">What's included</span>
-          <h2>A complete professional foundation.</h2>
+          <h2>Professional features for your next digital project.</h2>
           <p>Designed to give your clients a smooth experience across mobile and desktop.</p>
         </div>
         <div class="included-grid">
-          <div class="included-card"><span class="icon">01</span><h3>Client area</h3><p>Registration, secure login, profile area and investment overview.</p></div>
-          <div class="included-card"><span class="icon">02</span><h3>Portfolio views</h3><p>Investment balance, earnings and account information presented clearly.</p></div>
-          <div class="included-card"><span class="icon">03</span><h3>Admin control</h3><p>Manage users, accounts, investment plans and platform content from one place.</p></div>
+          <div class="included-card"><span class="icon">01</span><h3>Client area</h3><p>Customer registration, sign-in, and account pages where the package requires them.</p></div>
+          <div class="included-card"><span class="icon">02</span><h3>Portfolio views</h3><p>Clear customer-facing dashboards, account information, or order details.</p></div>
+          <div class="included-card"><span class="icon">03</span><h3>Admin control</h3><p>Admin dashboard options for managing users, listings, orders, and site content, depending on the package.</p></div>
           <div class="included-card"><span class="icon">04</span><h3>Responsive UI</h3><p>Clean layouts built for phones, tablets and desktop screens.</p></div>
           <div class="included-card"><span class="icon">05</span><h3>Support flow</h3><p>Floating WhatsApp and live-chat entry points make it easy to contact you.</p></div>
-          <div class="included-card"><span class="icon">06</span><h3>Payment-ready</h3><p>KoraPay checkout integration is prepared with server-side key handling.</p></div>
+          <div class="included-card"><span class="icon">06</span><h3>Payment-ready</h3><p>Existing KoraPay checkout flow for supported package orders, with server-side payment handling.</p></div>
         </div>
       </div>
     </section>
@@ -128,28 +82,32 @@
       <div class="demo-panel">
         <div class="demo-copy">
           <span class="eyebrow">Live website</span>
-          <h2>See the website before you buy.</h2>
-          <p>Watch the full video of the website, including the client experience and how the admin side works. Then open the live demo in a new tab.</p>
+          <h2>Watch website previews before you buy.</h2>
+          <p>Watch the website product walkthroughs, explore the available previews, and open the configured live demo in a new tab.</p>
           <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wizyt78.github.io/Elonmusk-Tesla/">Open live website <span>↗</span></a>
         </div>
         <div class="video-feature-card">
           <div class="video-card-top">
             <span class="video-live-dot"></span>
-            <span class="video-card-label">PLATFORM WALKTHROUGH</span>
+            <span class="video-card-label">NEW WEBSITE PRODUCT VIDEO</span>
             <span class="video-card-tag">VIMEO VIDEO</span>
           </div>
           <div class="video-shell" id="video-shell">
             <div class="video-placeholder">
               <div class="play">▶</div>
-              <strong>Watch the full platform walkthrough</strong>
-              <span>Explore the client dashboard and admin experience.</span>
+              <strong>Watch the new website product video</strong>
+              <span>Preview the website package and its features.</span>
             </div>
           </div>
           <div class="video-card-bottom">
-            <div><strong>See the platform in action</strong><span>Client dashboard · Admin tools · Mobile experience</span></div>
-            <span class="video-duration">FULL WALKTHROUGH</span>
+            <div><strong>Explore the website in action</strong><span>Website preview · Key pages · Mobile experience</span></div>
+            <span class="video-duration">WEBSITE PREVIEW</span>
           </div>
         </div>
+      </div>
+      <div class="video-gallery-wrap">
+        <div class="section-head video-gallery-heading"><div><span class="eyebrow">Video library</span><h2>Website product videos</h2></div><p>Video previews you add to the website will appear here.</p></div>
+        <div class="video-gallery" id="video-gallery"></div>
       </div>
     </section>
 
