@@ -79,6 +79,7 @@
           <div class="product-body"><div class="product-kicker">${p.category}</div><h3>${p.title}</h3><p>${p.description}</p>
             <ul class="feature-list">${p.features.slice(0,4).map(f=>`<li>${f}</li>`).join("")}</ul>
             <div class="price-row"><div><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
+            <div class="sales-count" aria-label="Total sales"><span class="sales-count-label">Total Sales</span><strong>${Number(p.salesCount || 0).toLocaleString("en-NG")}</strong></div>
             <button class="btn btn-primary btn-full" data-open-product="${p.id}">View package <span>→</span></button>
           </div>
         </article>`).join("");
@@ -145,6 +146,7 @@
           <h1>${p.detailTitle}</h1>
           <p class="detail-lead">${p.detailDescription}</p>
           <div class="detail-price"><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
+          <div class="sales-count sales-count-detail" aria-label="Total sales"><span class="sales-count-label">Total Sales</span><strong>${Number(p.salesCount || 0).toLocaleString("en-NG")}</strong></div>
           <ul class="feature-list feature-large">${p.features.map(f=>`<li>${f}</li>`).join("")}</ul>
           <div class="after-payment"><strong>After payment</strong><p>Send your payment proof through the WhatsApp button so your order can be reviewed and work can get started.</p></div>
           <a class="btn btn-primary btn-large" href="checkout.html?product=${p.id}">Choose this package <span>→</span></a>
