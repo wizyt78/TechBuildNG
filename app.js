@@ -65,32 +65,71 @@
     });
   }
 
+
+  function renderCatalog() {
+    const grid = qs("#product-grid");
+    if (!grid) return;
+    const entries = Object.values(C.packages);
+    const draw = query => {
+      const q = String(query || "").trim().toLowerCase();
+      const matches = entries.filter(p => [p.title,p.category,p.tag,p.description].join(" ").toLowerCase().includes(q));
+      grid.innerHTML = matches.map(p => `
+        <article class="product-card" data-product="${p.id}">
+          <div class="product-media"><img src="${p.logo}" alt="${p.title} preview" loading="lazy"><span class="media-badge">${p.tag}</span></div>
+          <div class="product-body"><div class="product-kicker">${p.category}</div><h3>${p.title}</h3><p>${p.description}</p>
+            <ul class="feature-list">${p.features.slice(0,4).map(f=>`<li>${f}</li>`).join("")}</ul>
+            <div class="price-row"><div><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div><span class="save-pill">From ${money(p.minDeposit)} deposit</span></div>
+            <button class="btn btn-primary btn-full" data-open-product="${p.id}">View package <span>→</span></button>
+          </div>
+        </article>`).join("");
+      const count = qs("#catalog-count");
+      const empty = qs("#catalog-empty");
+      if (count) count.textContent = `${matches.length} website ${matches.length === 1 ? "package" : "packages"}`;
+      if (empty) empty.classList.toggle("hidden", matches.length !== 0);
+    };
+    const search = qs("#product-search");
+    if (search) search.addEventListener("input", () => draw(search.value));
+    draw("");
+  }
+
+  function renderVideoGallery() {
+    const gallery = qs("#video-gallery");
+    if (!gallery) return;
+    const videos = Array.isArray(C.videoShowcase) ? C.videoShowcase : [];
+    gallery.innerHTML = videos.map((v, i) => {
+      const match = String(v.url || "").match(/(?:vimeo\.com\/(?:video\/)?)((?:\d+))/);
+      const embed = match ? `https://player.vimeo.com/video/${match[1]}` : "";
+      return `<article class="video-library-card"><div class="video-library-player">${embed ? `<iframe src="${embed}" title="${v.title || `Website product video ${i+1}`}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>` : `<div class="video-placeholder"><strong>${v.title || "Website product video"}</strong><span>Add a valid Vimeo URL in config.js to show this video.</span></div>`}</div><div class="video-library-copy"><span class="product-kicker">${v.label || "Website preview"}</span><h3>${v.title || `Website product video ${i+1}`}</h3></div></article>`;
+    }).join("");
+    if (!videos.length) gallery.innerHTML = `<div class="video-gallery-empty">Add video entries to <code>videoShowcase</code> in config.js to display your uploaded walkthroughs here.</div>`;
+  }
+
   function setupProductModal() {
     const modal = qs("#product-modal");
-    if (!modal) return;
-    document.querySelectorAll("[data-open-product]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const p = C.packages[btn.dataset.openProduct];
-        modal.innerHTML = `
-          <div class="modal-backdrop" data-close></div>
-          <div class="modal-panel">
-            <button class="modal-close" data-close aria-label="Close">×</button>
-            <span class="eyebrow">${p.tag}</span>
-            <img class="modal-logo" src="${p.logo}" alt="">
-            <h2>${p.title}</h2>
-            <p>${p.detailDescription}</p>
-            <div class="modal-price"><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div>
-            <div class="modal-actions">
-              <a class="btn btn-primary" href="product.html?product=${p.id}">View details & checkout →</a>
-            
-            </div>
-          </div>`;
-        modal.classList.add("open");
-        modal.setAttribute("aria-hidden","false");
-        modal.querySelectorAll("[data-close]").forEach(x => x.addEventListener("click", close));
-      });
+    const grid = qs("#product-grid");
+    if (!modal || !grid || grid.dataset.modalBound === "true") return;
+    grid.dataset.modalBound = "true";
+    grid.addEventListener("click", event => {
+      const btn = event.target.closest("[data-open-product]");
+      if (!btn) return;
+      const p = C.packages[btn.dataset.openProduct];
+      if (!p) return;
+      modal.innerHTML = `
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-panel">
+          <button class="modal-close" data-close aria-label="Close">×</button>
+          <span class="eyebrow">${p.tag}</span>
+          <img class="modal-logo" src="${p.logo}" alt="">
+          <h2>${p.title}</h2>
+          <p>${p.detailDescription}</p>
+          <div class="modal-price"><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div>
+          <div class="modal-actions"><a class="btn btn-primary" href="product.html?product=${p.id}">View details & checkout →</a></div>
+        </div>`;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      modal.querySelectorAll("[data-close]").forEach(x => x.addEventListener("click", close));
     });
-    function close(){ modal.classList.remove("open"); modal.setAttribute("aria-hidden","true"); }
+    function close() { modal.classList.remove("open"); modal.setAttribute("aria-hidden", "true"); }
   }
 
   function renderProductDetail() {
@@ -119,12 +158,12 @@
         <div class="video-feature-card video-feature-card-detail">
           <div class="video-card-top">
             <span class="video-live-dot"></span>
-            <span class="video-card-label">PLATFORM WALKTHROUGH</span>
+            <span class="video-card-label">NEW WEBSITE PRODUCT VIDEO</span>
             <span class="video-card-tag">VIMEO VIDEO</span>
           </div>
-          <div class="video-shell" id="detail-video-shell"><div class="video-placeholder"><div class="play">▶</div><strong>Watch the full platform walkthrough</strong><span>Explore the client dashboard and admin experience.</span></div></div>
+          <div class="video-shell" id="detail-video-shell"><div class="video-placeholder"><div class="play">▶</div><strong>Watch the new website product video</strong><span>Preview the website package and its features.</span></div></div>
           <div class="video-card-bottom">
-            <div><strong>See the platform in action</strong><span>Client dashboard · Admin tools · Mobile experience</span></div>
+            <div><strong>Explore the website in action</strong><span>Website preview · Key pages · Mobile experience</span></div>
             <span class="video-duration">FULL WALKTHROUGH</span>
           </div>
         </div>
@@ -295,5 +334,5 @@ if (wa) wa.style.display = "none";
     }
   }
 
-  header(); footer(); chat(); setupVideo(); setupProductModal(); renderProductDetail(); setupCheckout(); verifySuccess();
+  header(); footer(); chat(); setupVideo(); renderCatalog(); setupProductModal(); renderVideoGallery(); renderProductDetail(); setupCheckout(); verifySuccess();
 })();
