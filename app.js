@@ -79,7 +79,6 @@
           <div class="product-body"><div class="product-kicker">${p.category}</div><h3>${p.title}</h3><p>${p.description}</p>
             <ul class="feature-list">${p.features.slice(0,4).map(f=>`<li>${f}</li>`).join("")}</ul>
             <div class="price-row"><div><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
-            <div class="sales-count" aria-label="Total sales"><span class="sales-count-label">Total Sales</span><strong>${Number(p.salesCount || 0).toLocaleString("en-NG")}</strong></div>
             <button class="btn btn-primary btn-full" data-open-product="${p.id}">View package <span>→</span></button>
           </div>
         </article>`).join("");
@@ -138,56 +137,142 @@
     if (!el) return;
     const id = C.packages[params.get("product")] ? params.get("product") : "standard";
     const p = C.packages[id];
+    const isInvestmentVideo = id === "standard" || id === "custom";
+    const previewIds = ["socialmedia", "banking", "cars", "tracking", "clothing", "celebrity", "truck", "ecommerce"];
+    const previewMarkup = !isInvestmentVideo && previewIds.includes(id) ? `
+      <section class="preview-gallery-section" aria-labelledby="preview-gallery-title">
+        <div class="preview-gallery-heading">
+          <span class="eyebrow">VISUAL SHOWCASE</span>
+          <h2 id="preview-gallery-title">Explore the ${p.title} design</h2>
+          <p>Swipe through the image gallery to explore the website's layout and key screens. Each image opens in a larger view so you can inspect the full screenshot.</p>
+        </div>
+        <div class="preview-carousel" data-preview-carousel="${id}">
+          <div class="preview-track" data-preview-track tabindex="0" aria-label="Website screenshot gallery">
+            ${[1,2,3].map((n) => `<button class="preview-slide" type="button" data-preview-open="${n}" aria-label="Open website preview image ${n}"><img src="assets/previews/${id}-${n}.jpg" alt="${p.title} website preview ${n}" loading="lazy"><span class="preview-image-hint">Tap to view full image <span aria-hidden="true">↗</span></span></button>`).join("")}
+          </div>
+          <div class="preview-controls"><button type="button" class="preview-arrow" data-preview-prev aria-label="Previous preview">←</button><div class="preview-dots" aria-label="Choose preview image">${[1,2,3].map((n) => `<button type="button" class="preview-dot${n===1?' active':''}" data-preview-dot="${n-1}" aria-label="Go to preview ${n}"></button>`).join("")}</div><button type="button" class="preview-arrow" data-preview-next aria-label="Next preview">→</button></div>
+        </div>
+      </section>
+      <div class="preview-lightbox" data-preview-lightbox aria-hidden="true"><div class="preview-lightbox-backdrop" data-preview-close></div><div class="preview-lightbox-panel" role="dialog" aria-modal="true" aria-label="Full-size website preview"><button class="preview-lightbox-close" type="button" data-preview-close aria-label="Close image">×</button><button class="preview-lightbox-arrow prev" type="button" data-lightbox-prev aria-label="Previous image">‹</button><img data-lightbox-image src="" alt="Full-size website preview"><button class="preview-lightbox-arrow next" type="button" data-lightbox-next aria-label="Next image">›</button><div class="preview-lightbox-count" data-lightbox-count>1 / 3</div></div></div>` : "";
+    const liveVideoMarkup = isInvestmentVideo ? `
+      <div class="investment-video-content">
+        <div class="video-feature-card video-feature-card-detail">
+          <div class="video-card-top"><span class="video-live-dot"></span><span class="video-card-label">WEBSITE WALKTHROUGH</span><span class="video-card-tag">VIMEO VIDEO</span></div>
+          <div class="video-shell" id="detail-video-shell"><div class="video-placeholder"><div class="play">▶</div><strong>Watch the website walkthrough</strong><span>Explore the website package and its key features.</span></div></div>
+          <div class="video-card-bottom"><div><strong>Explore the website in action</strong><span>Website pages · Key features · Mobile experience</span></div><span class="video-duration">FULL WALKTHROUGH</span></div>
+        </div>
+        <h3>Watch the website walkthrough</h3>
+        <p>See the website experience and explore the features included with this investment website package.</p>
+        <p class="live-question">Want to open the live website?</p>
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="${C.liveWebsiteUrl}">Open live website ↗</a>
+      </div>` : `${previewMarkup}`;
     el.innerHTML = `
       <div class="detail-grid">
         <div class="detail-media"><img src="${p.logo}" alt="${p.title}"></div>
         <div class="detail-copy">
-          <span class="eyebrow">${p.tag}</span>
-          <h1>${p.detailTitle}</h1>
-          <p class="detail-lead">${p.detailDescription}</p>
+          <span class="eyebrow">${p.tag}</span><h1>${p.detailTitle}</h1><p class="detail-lead">${p.detailDescription}</p>
           <div class="detail-price"><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
-          <div class="sales-count sales-count-detail" aria-label="Total sales"><span class="sales-count-label">Total Sales</span><strong>${Number(p.salesCount || 0).toLocaleString("en-NG")}</strong></div>
           <ul class="feature-list feature-large">${p.features.map(f=>`<li>${f}</li>`).join("")}</ul>
           <div class="after-payment"><strong>After payment</strong><p>Send your payment proof through the WhatsApp button so your order can be reviewed and work can get started.</p></div>
           <a class="btn btn-primary btn-large" href="checkout.html?product=${p.id}">Choose this package <span>→</span></a>
         </div>
       </div>
-      <div class="details-tabs">
-        <button class="tab active">Details</button>
-        <button class="tab" data-live-tab>Live website</button>
-      </div>
-      <div class="live-tab-panel" id="live-tab-panel">
-        <div class="video-feature-card video-feature-card-detail">
-          <div class="video-card-top">
-            <span class="video-live-dot"></span>
-            <span class="video-card-label">NEW WEBSITE PRODUCT VIDEO</span>
-            <span class="video-card-tag">VIMEO VIDEO</span>
-          </div>
-          <div class="video-shell" id="detail-video-shell"><div class="video-placeholder"><div class="play">▶</div><strong>Watch the new website product video</strong><span>Preview the website package and its features.</span></div></div>
-          <div class="video-card-bottom">
-            <div><strong>Explore the website in action</strong><span>Website preview · Key pages · Mobile experience</span></div>
-            <span class="video-duration">FULL WALKTHROUGH</span>
-          </div>
-        </div>
-        <h3>Watch the full video of the website included with the package.</h3>
-        <p>See the client-facing website and how the admin dashboard works, then open the live website below.</p>
-        <p class="live-question">Do you want to see the website live?</p>
-        <a class="btn btn-primary" target="_blank" rel="noopener" href="${C.liveWebsiteUrl}">Click here to open the live website ↗</a>
-      </div>`;
+      <div class="details-tabs"><button class="tab active" data-details-tab>Details</button><button class="tab" data-live-tab>${isInvestmentVideo ? "Live website" : "Website previews"}</button></div>
+      <div class="live-tab-panel" id="live-tab-panel">${isInvestmentVideo ? liveVideoMarkup : previewMarkup}</div>`;
+
     const tab = qs("[data-live-tab]");
     const panel = qs("#live-tab-panel");
+    const detailsTab = qs("[data-details-tab]");
     if (tab && panel) {
-      tab.addEventListener("click", () => {
+      // Investment packages keep their Vimeo walkthrough; other packages show the image gallery.
+      if (isInvestmentVideo) {
+        panel.classList.remove("visible");
+        tab.addEventListener("click", () => {
+          document.querySelectorAll(".details-tabs .tab").forEach(t=>t.classList.remove("active"));
+          tab.classList.add("active"); panel.classList.add("visible");
+          const shell = qs("#detail-video-shell");
+          if (shell && C.videoVimeoUrl) {
+            const m = C.videoVimeoUrl.match(/(?:vimeo\.com\/(?:video\/)?)(\d+)/);
+            if (m) shell.innerHTML = `<iframe src="https://player.vimeo.com/video/${m[1]}" title="${p.title} walkthrough" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+          }
+        });
+      } else {
+        tab.addEventListener("click", () => {
+          document.querySelectorAll(".details-tabs .tab").forEach(t=>t.classList.remove("active"));
+          tab.classList.add("active"); panel.classList.add("visible");
+          panel.scrollIntoView({behavior:"smooth", block:"start"});
+        });
+      }
+      if (detailsTab) detailsTab.addEventListener("click", () => {
         document.querySelectorAll(".details-tabs .tab").forEach(t=>t.classList.remove("active"));
-        tab.classList.add("active");
-        panel.classList.add("visible");
-        const shell = qs("#detail-video-shell");
-        if (shell && C.videoVimeoUrl) {
-          const m = C.videoVimeoUrl.match(/(?:vimeo\.com\/(?:video\/)?)(\d+)/);
-          if (m) shell.innerHTML = `<iframe src="https://player.vimeo.com/video/${m[1]}" title="TechBuild NG website walkthrough" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
-        }
+        detailsTab.classList.add("active");
+        panel.classList.remove("visible");
       });
     }
+    if (!isInvestmentVideo && previewIds.includes(id)) setupPreviewGallery(el, id, p.title);
+  }
+
+  function setupPreviewGallery(root, productId, productTitle) {
+    const carousel = root.querySelector("[data-preview-carousel]");
+    const track = carousel?.querySelector("[data-preview-track]");
+    const lightbox = root.querySelector("[data-preview-lightbox]");
+    if (!carousel || !track || !lightbox) return;
+    const slides = Array.from(track.querySelectorAll(".preview-slide"));
+    const dots = Array.from(carousel.querySelectorAll("[data-preview-dot]"));
+    const image = lightbox.querySelector("[data-lightbox-image]");
+    const count = lightbox.querySelector("[data-lightbox-count]");
+    let current = 0;
+    const imagePath = n => `assets/previews/${productId}-${n + 1}.jpg`;
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+      const slide = slides[current];
+      track.scrollTo({left: slide.offsetLeft - track.offsetLeft, behavior:"smooth"});
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
+    }
+    function openLightbox(index) {
+      current = index;
+      image.src = imagePath(current);
+      image.alt = `${productTitle} full-size preview ${current + 1}`;
+      count.textContent = `${current + 1} / ${slides.length}`;
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("preview-lightbox-open");
+    }
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("preview-lightbox-open");
+    }
+    function moveLightbox(delta) {
+      current = (current + delta + slides.length) % slides.length;
+      image.src = imagePath(current);
+      image.alt = `${productTitle} full-size preview ${current + 1}`;
+      count.textContent = `${current + 1} / ${slides.length}`;
+    }
+    carousel.querySelector("[data-preview-prev]")?.addEventListener("click", () => goTo(current - 1));
+    carousel.querySelector("[data-preview-next]")?.addEventListener("click", () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+    slides.forEach((slide, i) => slide.addEventListener("click", () => openLightbox(i)));
+    lightbox.querySelectorAll("[data-preview-close]").forEach(node => node.addEventListener("click", closeLightbox));
+    lightbox.querySelector("[data-lightbox-prev]")?.addEventListener("click", () => moveLightbox(-1));
+    lightbox.querySelector("[data-lightbox-next]")?.addEventListener("click", () => moveLightbox(1));
+    lightbox.addEventListener("touchstart", event => { lightbox.dataset.touchX = String(event.changedTouches[0].clientX); }, {passive:true});
+    lightbox.addEventListener("touchend", event => {
+      const start = Number(lightbox.dataset.touchX || 0), diff = event.changedTouches[0].clientX - start;
+      if (Math.abs(diff) > 55) moveLightbox(diff < 0 ? 1 : -1);
+    }, {passive:true});
+    document.addEventListener("keydown", event => {
+      if (!lightbox.classList.contains("open")) return;
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowRight") moveLightbox(1);
+      if (event.key === "ArrowLeft") moveLightbox(-1);
+    });
+    track.addEventListener("scroll", () => {
+      const center = track.scrollLeft + track.clientWidth / 2;
+      let nearest = 0, distance = Infinity;
+      slides.forEach((slide, i) => { const d = Math.abs(slide.offsetLeft + slide.clientWidth/2 - center); if (d < distance) {distance=d; nearest=i;} });
+      current = nearest; dots.forEach((dot, i) => dot.classList.toggle("active", i === nearest));
+    }, {passive:true});
   }
 
   function setupCheckout() {
