@@ -32,3 +32,9 @@ h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.045em;margi
 
 /* Prevent mobile browsers (especially iOS Safari) from auto-zooming when text fields receive focus. Keep text controls at 16px or larger. */
 input:not([type="checkbox"]):not([type="radio"]), select, textarea { font-size: 16px !important; }
+
+/* Premium product sales indicator */
+.sales-count{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 18px;padding:13px 15px;border:1px solid #dce8fb;border-radius:14px;background:linear-gradient(135deg,#f5f9ff,#edf5ff);color:#182b49}
+.sales-count-label{font-size:12px;font-weight:800;letter-spacing:.035em;color:#62728a}
+.sales-count strong{font:800 20px var(--display);color:var(--blue);font-variant-numeric:tabular-nums}
+.sales-count-detail{max-width:260px;margin:0 0 24px}
