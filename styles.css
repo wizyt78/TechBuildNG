@@ -69,3 +69,11 @@ body.preview-lightbox-open{overflow:hidden}
 .sales-count strong{font:800 20px var(--display);color:var(--blue);font-variant-numeric:tabular-nums}
 .sales-count-detail{max-width:260px;margin:0 0 24px}
 
+
+
+/* Fixed, non-negotiable package pricing */
+.fixed-price-badge{display:inline-flex;align-items:center;gap:7px;flex-wrap:wrap;width:max-content;max-width:100%;margin:10px 0 4px;padding:8px 12px;border:1px solid #b9d5ff;border-radius:999px;background:#eff6ff;color:#1458b8;font-size:10px;font-weight:900;letter-spacing:.075em;line-height:1.35}
+.fixed-price-badge>span:first-child{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#1768df;color:#fff;font-size:11px;letter-spacing:0}
+.fixed-price-separator{color:#7b9bc7}
+.fixed-price-detail{margin-top:-10px;margin-bottom:18px}
+@media(max-width:600px){.fixed-price-badge{font-size:9px;padding:7px 10px}}
