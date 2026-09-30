@@ -182,37 +182,32 @@
           <a class="btn btn-primary btn-large" href="checkout.html?product=${p.id}">Choose this package <span>→</span></a>
         </div>
       </div>
-      <div class="details-tabs"><button class="tab active" data-details-tab>Details</button><button class="tab" data-live-tab>${isInvestmentVideo ? "Live website" : "Website previews"}</button></div>
-      <div class="live-tab-panel" id="live-tab-panel">${isInvestmentVideo ? liveVideoMarkup : previewMarkup}</div>`;
+      <div class="preview-guide" aria-hidden="true">
+        <span>See the website preview</span><strong>↓</strong>
+      </div>
+      <div class="details-tabs"><button class="tab active" data-live-tab>${isInvestmentVideo ? "Live website" : "Website previews"}</button></div>
+      <div class="live-tab-panel visible" id="live-tab-panel">${isInvestmentVideo ? liveVideoMarkup : previewMarkup}</div>`;
 
     const tab = qs("[data-live-tab]");
     const panel = qs("#live-tab-panel");
-    const detailsTab = qs("[data-details-tab]");
     if (tab && panel) {
-      // Investment packages keep their Vimeo walkthrough; other packages show the image gallery.
-      if (isInvestmentVideo) {
-        panel.classList.remove("visible");
-        tab.addEventListener("click", () => {
-          document.querySelectorAll(".details-tabs .tab").forEach(t=>t.classList.remove("active"));
-          tab.classList.add("active"); panel.classList.add("visible");
-          const shell = qs("#detail-video-shell");
-          if (shell && C.videoVimeoUrl) {
-            const m = C.videoVimeoUrl.match(/(?:vimeo\.com\/(?:video\/)?)(\d+)/);
-            if (m) shell.innerHTML = `<iframe src="https://player.vimeo.com/video/${m[1]}" title="${p.title} walkthrough" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
-          }
-        });
-      } else {
-        tab.addEventListener("click", () => {
-          document.querySelectorAll(".details-tabs .tab").forEach(t=>t.classList.remove("active"));
-          tab.classList.add("active"); panel.classList.add("visible");
-          panel.scrollIntoView({behavior:"smooth", block:"start"});
-        });
-      }
-      if (detailsTab) detailsTab.addEventListener("click", () => {
+      // The preview is intentionally visible by default. There is no separate Details tab.
+      tab.addEventListener("click", () => {
         document.querySelectorAll(".details-tabs .tab").forEach(t=>t.classList.remove("active"));
-        detailsTab.classList.add("active");
-        panel.classList.remove("visible");
+        tab.classList.add("active");
+        panel.classList.add("visible");
+        panel.scrollIntoView({behavior:"smooth", block:"start"});
       });
+
+      // Keep the existing Vimeo flow for the two investment packages, but load it
+      // automatically now that Live website is the only tab.
+      if (isInvestmentVideo) {
+        const shell = qs("#detail-video-shell");
+        if (shell && C.videoVimeoUrl) {
+          const m = C.videoVimeoUrl.match(/(?:vimeo\.com\/(?:video\/)?)(\d+)/);
+          if (m) shell.innerHTML = `<iframe src="https://player.vimeo.com/video/${m[1]}" title="${p.title} walkthrough" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+        }
+      }
     }
     if (!isInvestmentVideo && previewIds.includes(id)) setupPreviewGallery(el, id, p.title);
   }
