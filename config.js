@@ -35,7 +35,7 @@ window.TECHBUILD_CONFIG = {
   },
   "standard": {
     "id": "standard",
-    "salesCount": 66,
+    "salesCount": 108,
     "title": "Tesla Investment Website",
     "price": 150000,
     "oldPrice": 250000,
