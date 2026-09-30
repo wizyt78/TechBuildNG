@@ -75,7 +75,7 @@
       const matches = entries.filter(p => [p.title,p.category,p.tag,p.description].join(" ").toLowerCase().includes(q));
       grid.innerHTML = matches.map(p => `
         <article class="product-card" data-product="${p.id}">
-          <div class="product-media"><img src="${p.cover || p.logo}" alt="${p.title} website preview" loading="lazy"><span class="media-badge">${p.tag}</span></div>
+          <div class="product-media"><img src="${p.cover}" alt="${p.title} website preview" loading="lazy"><span class="media-badge">${p.tag}</span></div>
           <div class="product-body"><div class="product-kicker">${p.category}</div><h3>${p.title}</h3><p>${p.description}</p>
             <ul class="feature-list">${p.features.slice(0,4).map(f=>`<li>${f}</li>`).join("")}</ul>
             <div class="price-row"><div><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
@@ -121,7 +121,7 @@
         <div class="modal-panel">
           <button class="modal-close" data-close aria-label="Close">×</button>
           <span class="eyebrow">${p.tag}</span>
-          <img class="modal-logo" src="${p.logo}" alt="">
+          <img class="modal-cover" src="${p.cover}" alt="${p.title} website preview" loading="lazy">
           <h2>${p.title}</h2>
           <p>${p.detailDescription}</p>
           <div class="modal-price"><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div>
@@ -171,7 +171,7 @@
       </div>` : `${previewMarkup}`;
     el.innerHTML = `
       <div class="detail-grid">
-        <div class="detail-media"><img src="${p.logo}" alt="${p.title}"></div>
+        <div class="detail-media"><img src="${p.cover}" alt="${p.title} website preview" loading="eager"></div>
         <div class="detail-copy">
           <span class="eyebrow">${p.tag}</span><h1>${p.detailTitle}</h1><p class="detail-lead">${p.detailDescription}</p>
           <div class="detail-price"><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
@@ -286,7 +286,8 @@
     qs("#deposit-help").textContent = `Choose any amount from ${money(p.minDeposit)} up to ${money(p.price)}.`;
     qs("#min-hint").textContent = `Minimum: ${money(p.minDeposit)}`;
     qs("#max-hint").textContent = `Maximum: ${money(p.price)}`;
-    qs("#summary-logo").src = p.logo;
+    qs("#summary-logo").src = p.cover;
+    qs("#summary-logo").alt = `${p.title} website preview`;
     qs("#summary-title").textContent = p.title;
     qs("#summary-description").textContent = p.description;
     const amountInput = qs("#custom-amount");
