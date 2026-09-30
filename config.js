@@ -177,7 +177,7 @@ window.TECHBUILD_CONFIG = {
     "salesCount": 765,
     "title": "Custom Celebrity-Inspired Merchandise Store",
     "price": 150000,
-    "oldPrice": 196000,
+    "oldPrice": 286000,
     "minDeposit": 75000,
     "logo": "assets/celebrity-store.svg",
     "cover": "assets/product-covers/celebrity-website-main.jpg",
