@@ -61,3 +61,11 @@ input:not([type="checkbox"]):not([type="radio"]), select, textarea { font-size: 
 .preview-lightbox-count{position:absolute;bottom:0;left:50%;transform:translateX(-50%);color:#fff;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 13px;font-size:12px;font-weight:700}
 body.preview-lightbox-open{overflow:hidden}
 @media(max-width:700px){.preview-slide{flex-basis:90%;border-radius:15px}.preview-track{gap:12px}.preview-gallery-heading p{font-size:14px}.preview-lightbox{padding:10px}.preview-lightbox-panel{width:100%;height:88vh}.preview-lightbox-panel>img{max-width:100%;max-height:100%;border-radius:5px}.preview-lightbox-close{right:5px;top:5px}.preview-lightbox-arrow{width:38px;height:48px;border-radius:12px;font-size:29px;background:rgba(7,20,40,.55)}.preview-lightbox-arrow.prev{left:5px}.preview-lightbox-arrow.next{right:5px}.preview-lightbox-count{bottom:5px}}
+
+
+/* Premium product sales indicator */
+.sales-count{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 18px;padding:13px 15px;border:1px solid #dce8fb;border-radius:14px;background:linear-gradient(135deg,#f5f9ff,#edf5ff);color:#182b49}
+.sales-count-label{font-size:12px;font-weight:800;letter-spacing:.035em;color:#62728a}
+.sales-count strong{font:800 20px var(--display);color:var(--blue);font-variant-numeric:tabular-nums}
+.sales-count-detail{max-width:260px;margin:0 0 24px}
+
