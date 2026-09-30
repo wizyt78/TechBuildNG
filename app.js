@@ -75,7 +75,7 @@
       const matches = entries.filter(p => [p.title,p.category,p.tag,p.description].join(" ").toLowerCase().includes(q));
       grid.innerHTML = matches.map(p => `
         <article class="product-card" data-product="${p.id}">
-          <div class="product-media"><img src="${p.logo}" alt="${p.title} preview" loading="lazy"><span class="media-badge">${p.tag}</span></div>
+          <div class="product-media"><img src="${p.cover || p.logo}" alt="${p.title} website preview" loading="lazy"><span class="media-badge">${p.tag}</span></div>
           <div class="product-body"><div class="product-kicker">${p.category}</div><h3>${p.title}</h3><p>${p.description}</p>
             <ul class="feature-list">${p.features.slice(0,4).map(f=>`<li>${f}</li>`).join("")}</ul>
             <div class="price-row"><div><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
