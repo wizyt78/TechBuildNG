@@ -12,7 +12,7 @@ window.TECHBUILD_CONFIG = {
   packages: {
   "socialmedia": {
     "id": "socialmedia",
-    "salesCount": 578,
+    "salesCount": 208,
     "title": "Buy All Social Media Accounts & Foreign Numbers Website",
     "price": 150000,
     "oldPrice": 200000,
