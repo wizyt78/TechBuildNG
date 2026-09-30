@@ -77,3 +77,79 @@ body.preview-lightbox-open{overflow:hidden}
 .fixed-price-separator{color:#7b9bc7}
 .fixed-price-detail{margin-top:-10px;margin-bottom:18px}
 @media(max-width:600px){.fixed-price-badge{font-size:9px;padding:7px 10px}}
+
+
+/* Preview guide: a quiet directional cue between the package CTA and the preview area. */
+.preview-guide{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  margin:34px 0 -52px;
+  position:relative;
+  z-index:2;
+  pointer-events:none;
+}
+.preview-guide span{
+  color:#5f6f86;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.02em;
+  background:rgba(255,255,255,.94);
+  border:1px solid #dce6f4;
+  border-radius:999px;
+  padding:8px 12px;
+  box-shadow:0 8px 22px rgba(15,31,58,.07);
+}
+.preview-guide strong{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#0b63f6;
+  color:#fff;
+  font-size:20px;
+  line-height:1;
+  box-shadow:0 9px 22px rgba(11,99,246,.22);
+}
+.preview-guide::after{
+  content:"";
+  position:absolute;
+  right:16px;
+  top:38px;
+  width:1px;
+  height:34px;
+  background:linear-gradient(#0b63f6,rgba(11,99,246,0));
+}
+.details-tabs{
+  margin-top:70px;
+}
+.details-tabs .tab{
+  color:var(--ink);
+  border-bottom:3px solid var(--blue);
+  cursor:default;
+}
+@media(max-width:700px){
+  .preview-guide{
+    margin:28px 0 -42px;
+    padding-right:4px;
+  }
+  .preview-guide span{
+    font-size:11px;
+    padding:7px 10px;
+  }
+  .preview-guide strong{
+    width:31px;
+    height:31px;
+    font-size:18px;
+  }
+  .preview-guide::after{
+    right:18px;
+    top:34px;
+    height:27px;
+  }
+  .details-tabs{
+    margin-top:58px;
+  }
+}
