@@ -141,7 +141,7 @@
     const id = C.packages[params.get("product")] ? params.get("product") : "standard";
     const p = C.packages[id];
     const isInvestmentVideo = id === "standard" || id === "custom";
-    const previewIds = ["socialmedia", "banking", "cars", "tracking", "clothing", "celebrity", "truck", "ecommerce"];
+    const previewIds = ["socialmedia", "banking", "loanbanking", "cars", "tracking", "clothing", "celebrity", "truck", "ecommerce"];
     const previewMarkup = !isInvestmentVideo && previewIds.includes(id) ? `
       <section class="preview-gallery-section" aria-labelledby="preview-gallery-title">
         <div class="preview-gallery-heading">
