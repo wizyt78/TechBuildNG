@@ -36,7 +36,7 @@ window.TECHBUILD_CONFIG = {
   },
   "standard": {
     "id": "standard",
-    "salesCount": 108,
+    "salesCount": 137,
     "title": "Tesla Investment Website",
     "price": 150000,
     "oldPrice": 250000,
@@ -174,7 +174,7 @@ window.TECHBUILD_CONFIG = {
   },
   "celebrity": {
     "id": "celebrity",
-    "salesCount": 765,
+    "salesCount": 189,
     "title": "Custom Celebrity-Inspired Merchandise Store",
     "price": 150000,
     "oldPrice": 286000,
@@ -220,7 +220,7 @@ window.TECHBUILD_CONFIG = {
   },
   "ecommerce": {
     "id": "ecommerce",
-    "salesCount": 452,
+    "salesCount": 152,
     "title": "General E-commerce Website",
     "price": 170000,
     "oldPrice": 280000,
