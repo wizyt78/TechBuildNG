@@ -78,7 +78,7 @@
           <div class="product-media"><img src="${p.cover}" alt="${p.title} website preview" loading="lazy"><span class="media-badge">${p.tag}</span></div>
           <div class="product-body"><div class="product-kicker">${p.category}</div><h3>${p.title}</h3><p>${p.description}</p>
             <ul class="feature-list">${p.features.slice(0,4).map(f=>`<li>${f}</li>`).join("")}</ul>
-            <div class="price-row"><div><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
+            <div class="price-row"><div><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong><span class="deposit-from">Deposit from ${money(p.minDeposit)}</span></div><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
             <div class="fixed-price-badge"><span aria-hidden="true">✓</span> FIXED PRICE <span class="fixed-price-separator">·</span> NO BARGAINING</div>
             <div class="sales-count" aria-label="Total sales"><span class="sales-count-label">Total Sales</span><strong>${Number(p.salesCount || 0).toLocaleString("en-NG")}</strong></div>
             <button class="btn btn-primary btn-full" data-open-product="${p.id}">View package <span>→</span></button>
@@ -124,7 +124,7 @@
           <img class="modal-cover" src="${p.cover}" alt="${p.title} website preview" loading="lazy">
           <h2>${p.title}</h2>
           <p>${p.detailDescription}</p>
-          <div class="modal-price"><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong></div>
+          <div class="modal-price"><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong><span class="deposit-from">Deposit from ${money(p.minDeposit)}</span></div>
           <div class="fixed-price-badge"><span aria-hidden="true">✓</span> FIXED PRICE <span class="fixed-price-separator">·</span> NO BARGAINING</div>
           <div class="modal-actions"><a class="btn btn-primary" href="product.html?product=${p.id}">View details & checkout →</a></div>
         </div>`;
@@ -174,7 +174,7 @@
         <div class="detail-media"><img src="${p.cover}" alt="${p.title} website preview" loading="eager"></div>
         <div class="detail-copy">
           <span class="eyebrow">${p.tag}</span><h1>${p.detailTitle}</h1><p class="detail-lead">${p.detailDescription}</p>
-          <div class="detail-price"><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
+          <div class="detail-price"><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span><span class="deposit-from">Deposit from ${money(p.minDeposit)}</span></div>
           <div class="fixed-price-badge fixed-price-detail"><span aria-hidden="true">✓</span> FIXED PRICE <span class="fixed-price-separator">·</span> NO BARGAINING</div>
           <div class="sales-count sales-count-detail" aria-label="Total sales"><span class="sales-count-label">Total Sales</span><strong>${Number(p.salesCount || 0).toLocaleString("en-NG")}</strong></div>
           <ul class="feature-list feature-large">${p.features.map(f=>`<li>${f}</li>`).join("")}</ul>
