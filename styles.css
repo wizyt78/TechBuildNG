@@ -158,3 +158,10 @@ body.preview-lightbox-open{overflow:hidden}
 /* Minimal mobile modal scroll fix — preserves the existing design and all other site logic. */
 .modal{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
 .modal-panel{max-height:86vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
+
+
+/* Deposit availability shown from each package's existing minDeposit value. */
+.deposit-from{display:block;width:max-content;max-width:100%;margin-top:7px;padding:5px 9px;border-radius:8px;background:#f0f7ff;border:1px solid #d5e7ff;color:#1768df;font-size:11px;font-weight:800;line-height:1.25;letter-spacing:.01em}
+.detail-price .deposit-from{margin-top:9px;font-size:12px;padding:6px 10px;border-radius:9px}
+.modal-price .deposit-from{margin-top:8px;font-size:11px}
+@media(max-width:600px){.deposit-from{font-size:10px;padding:5px 8px}.detail-price .deposit-from{font-size:11px}}
