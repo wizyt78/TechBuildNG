@@ -330,7 +330,7 @@
     form.addEventListener("submit", async e => {
       e.preventDefault();
       if (!validateAmount()) return;
-      const name = qs("#customer-name").value.trim();
+      const username = qs("#customer-username").value.trim();
       const email = qs("#customer-email").value.trim();
       const amount = selectedAmount();
       const btn = qs("#pay-button");
@@ -339,11 +339,11 @@
         const res = await fetch((C.apiBase || "") + "/api/initialize-payment", {
           method:"POST",
           headers:{"Content-Type":"application/json"},
-          body: JSON.stringify({ productId:p.id, productTitle:p.title, amount, name, email })
+          body: JSON.stringify({ productId:p.id, productTitle:p.title, amount, name:username, username, email })
         });
         const data = await res.json();
         if (!res.ok || !data.checkout_url) throw new Error(data.message || "Unable to initialize payment.");
-        sessionStorage.setItem("techbuild_order", JSON.stringify({productId:p.id, title:p.title, amount, name, email, reference:data.reference || ""}));
+        sessionStorage.setItem("techbuild_order", JSON.stringify({productId:p.id, title:p.title, amount, username, email, reference:data.reference || ""}));
         window.location.href = data.checkout_url;
       } catch (err) {
         btn.disabled = false; btn.innerHTML = "Continue to secure payment <span>→</span>";
@@ -365,8 +365,8 @@ if (wa) wa.style.display = "none";
     refEl.textContent = ref || "Not provided";
     const order = JSON.parse(sessionStorage.getItem("techbuild_order") || "null");
     const title = order?.title || "website package";
-    const amount = order?.amount ? money(order.amount) : "";
-    if (wa) wa.href = waLink(`Hello TechBuild NG, I have completed payment for ${title}${amount ? " ("+amount+")" : ""}. Payment reference: ${ref || "not shown"}. I am sending my payment proof here.`);
+    const username = order?.username || "";
+    if (wa) wa.href = waLink(`Hello TechBuild NG, I have completed payment for ${title}. Username: ${username || "not provided"}. Email: ${order?.email || "not provided"}. Payment reference: ${ref || "not shown"}. I am sending my payment proof here.`);
     if (!ref) { statusEl.textContent = "Reference not found. Please contact support on WhatsApp."; return; }
     try {
       const r = await fetch(`/api/verify-payment?reference=${encodeURIComponent(ref)}`);
@@ -376,13 +376,20 @@ if (wa) wa.style.display = "none";
 
   if (paymentStatus === "success" || paymentStatus === "successful") {
 
+    const verifiedAmount = Number(d.amount || order?.amount || 0);
+    const pkg = order?.productId && C.packages[order.productId] ? C.packages[order.productId] : null;
+    const fullPrice = Number(pkg?.price || 0);
+    const paymentType = fullPrice && verifiedAmount >= fullPrice ? "full payment" : "deposit payment";
+    const verifiedAmountText = verifiedAmount ? ` (${money(verifiedAmount)})` : "";
+    if (wa) wa.href = waLink(`Hello TechBuild NG, I have completed ${paymentType} for ${title}${verifiedAmountText}. Username: ${username || "not provided"}. Email: ${order?.email || "not provided"}. Payment reference: ${ref || "not shown"}. I am sending my payment proof here.`);
+
     if (stateEl) stateEl.textContent = "Payment successful";
     if (titleEl) titleEl.textContent = "Payment confirmed.";
 
     if (wa) wa.style.display = "";
 
     statusEl.textContent =
-      `Payment status: SUCCESS • Amount: ${money(Number(d.amount || 0))}`;
+      `Payment status: SUCCESS • Amount: ${money(verifiedAmount)}`;
 
     statusEl.className = "verify-status success";
 
