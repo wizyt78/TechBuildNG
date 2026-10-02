@@ -103,6 +103,34 @@ window.TECHBUILD_CONFIG = {
       "Responsive mobile and desktop layout"
     ]
   },
+  "loanbanking": {
+    "id": "loanbanking",
+    "salesCount": 0,
+    "title": "Premium Loan & Banking Website",
+    "price": 200000,
+    "oldPrice": 350000,
+    "minDeposit": 100000,
+    "logo": "assets/banking-website.svg",
+    "cover": "assets/product-covers/loan-banking-website-main.jpg",
+    "tag": "Premium loan platform",
+    "category": "Loan & Banking Website",
+    "description": "A premium loan and banking website package with a polished landing page, mobile-responsive customer account, loan application flow, customer dashboard, loan and payment history, and a full admin management experience. The admin concept supports manual loan approval/rejection, manual funding or debit/credit adjustments in the currencies configured by the site owner, customer management, messaging, account suspension/deletion, currency management, repayment controls, reports, and audit logs.",
+    "detailTitle": "Premium Loan & Banking Website",
+    "detailDescription": "A premium ready-made loan and banking website UI package designed for a professional customer experience across desktop and mobile. The customer side includes a banking-style account dashboard, loan application flow, loan/payment history, balances, and responsive mobile screens; the admin side includes application review, approval/rejection, manual funding/disbursement, debit/credit account adjustments, customer management, messaging, currency controls, repayment management, reports, audit logs, suspension, and deletion controls. The manual funding and currency features are website functionality and must be configured and operated in accordance with the applicable financial, lending, KYC/AML, consumer-protection, and payment requirements for the launch jurisdiction.",
+    "features": [
+      "Premium banking/loan landing page",
+      "Mobile-responsive customer account",
+      "Loan application system UI",
+      "Customer dashboard",
+      "Loan and payment history",
+      "Admin dashboard with approval and rejection controls",
+      "Manual funding and debit/credit account adjustments",
+      "Customer management, suspension, and deletion controls",
+      "Admin messaging and notifications",
+      "Currency and repayment management",
+      "Reports and audit logs"
+    ]
+  },
   "cars": {
     "id": "cars",
     "salesCount": 238,
