@@ -109,7 +109,7 @@ window.TECHBUILD_CONFIG = {
     "title": "Premium Loan & Banking Website",
     "price": 200000,
     "oldPrice": 350000,
-    "minDeposit": 100000,
+    "minDeposit": 100,
     "logo": "assets/banking-website.svg",
     "cover": "assets/product-covers/loan-banking-website-main.jpg",
     "tag": "Premium loan platform",
