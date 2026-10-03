@@ -77,7 +77,7 @@
         <article class="product-card" data-product="${p.id}">
           <div class="product-media"><img src="${p.cover}" alt="${p.title} website preview" loading="lazy"><span class="media-badge">${p.tag}</span></div>
           <div class="product-body"><div class="product-kicker">${p.category}</div><h3>${p.title}</h3><p>${p.description}</p>
-            <ul class="feature-list">${p.features.slice(0,4).map(f=>`<li>${f}</li>`).join("")}</ul>
+            <ul class="feature-list">${p.features.slice(0, p.id === "clothing" ? p.features.length : 4).map(f=>`<li>${f}</li>`).join("")}</ul>
             <div class="price-row"><div><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong><span class="deposit-from">Deposit from ${money(p.minDeposit)}</span></div><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
             <div class="fixed-price-badge"><span aria-hidden="true">✓</span> FIXED PRICE <span class="fixed-price-separator">·</span> NO BARGAINING</div>
             <div class="sales-count" aria-label="Total sales"><span class="sales-count-label">Total Sales</span><strong>${Number(p.salesCount || 0).toLocaleString("en-NG")}</strong></div>
@@ -151,7 +151,7 @@
         </div>
         <div class="preview-carousel" data-preview-carousel="${id}">
           <div class="preview-track" data-preview-track tabindex="0" aria-label="Website screenshot gallery">
-            ${[1,2,3].map((n) => `<button class="preview-slide" type="button" data-preview-open="${n}" aria-label="Open website preview image ${n}"><img src="assets/previews/${id}-${n}.jpg" alt="${p.title} website preview ${n}" loading="lazy"><span class="preview-image-hint">Tap to view full image <span aria-hidden="true">↗</span></span></button>`).join("")}
+            ${[1,2,3].map((n) => { const previewSrc = id === "clothing" ? `assets/previews/clothing-online-store-${n}.jpg` : `assets/previews/${id}-${n}.jpg`; return `<button class="preview-slide" type="button" data-preview-open="${n}" aria-label="Open website preview image ${n}"><img src="${previewSrc}" alt="${p.title} website preview ${n}" loading="lazy"><span class="preview-image-hint">Tap to view full image <span aria-hidden="true">↗</span></span></button>`; }).join("")}
           </div>
           <div class="preview-controls"><button type="button" class="preview-arrow" data-preview-prev aria-label="Previous preview">←</button><div class="preview-dots" aria-label="Choose preview image">${[1,2,3].map((n) => `<button type="button" class="preview-dot${n===1?' active':''}" data-preview-dot="${n-1}" aria-label="Go to preview ${n}"></button>`).join("")}</div><button type="button" class="preview-arrow" data-preview-next aria-label="Next preview">→</button></div>
         </div>
