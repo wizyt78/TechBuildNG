@@ -10,6 +10,32 @@ window.TECHBUILD_CONFIG = {
   korapayEnabled: true,
   apiBase: "",
   packages: {
+  "clothing": {
+    "id": "clothing",
+    "salesCount": 0,
+    "title": "Clothing & Online Store",
+    "price": 149000,
+    "oldPrice": 250000,
+    "minDeposit": 80000,
+    "logo": "assets/clothing-store.svg",
+    "cover": "assets/product-covers/clothing-online-store-main.jpg",
+    "tag": "Premium online store",
+    "category": "Clothing & Online Store",
+    "description": "A premium ready-made fashion e-commerce website for selling men's and women's clothing, shoes, bags, and wrist watches.",
+    "detailTitle": "Clothing & Online Store",
+    "detailDescription": "A premium ready-made fashion e-commerce website designed for a professional online store experience across mobile and desktop.",
+    "features": [
+      "Premium Fashion Design",
+      "Men & Women Products",
+      "Cart & Checkout",
+      "Admin Dashboard",
+      "Product Management",
+      "WhatsApp",
+      "KoraPay Ready",
+      "Mobile Responsive",
+      "Cloudflare Ready"
+    ]
+  },
   "socialmedia": {
     "id": "socialmedia",
     "salesCount": 347,
@@ -177,29 +203,7 @@ window.TECHBUILD_CONFIG = {
       "Mobile-friendly design"
     ]
   },
-  "clothing": {
-    "id": "clothing",
-    "salesCount": 386,
-    "title": "Clothing & Online Store",
-    "price": 157000,
-    "oldPrice": 300000,
-    "minDeposit": 80000,
-    "logo": "assets/clothing-store.svg",
-    "cover": "assets/product-covers/clothing-website-main.jpg",
-    "tag": "E-commerce store",
-    "category": "Online Store",
-    "description": "A polished online shop for clothing and products with product collections, shopping cart, checkout flow, and tools to manage the storefront. Wire transfer, Cash App, and PayPal payment options can be shown in the customer checkout, subject to the site owner’s payment setup.",
-    "detailTitle": "Clothing & Online Store",
-    "detailDescription": "A professional e-commerce storefront for clothing, accessories, and physical products. Showcase product photos, descriptions, sizes, colors, and prices with a cart and checkout flow. Admin tools and payment-provider configuration can be included according to the final scope. The customer checkout can display wire transfer, Cash App, and PayPal payment instructions, subject to the business owner configuring those payment methods.",
-    "features": [
-      "Product catalog with photos and variants",
-      "Collections, sizes, and color options",
-      "Shopping cart and checkout flow",
-      "Order and product management interface",
-      "Store branding and promotional sections",
-      "Responsive mobile and desktop layout"
-    ]
-  },
+
   "celebrity": {
     "id": "celebrity",
     "salesCount": 189,
