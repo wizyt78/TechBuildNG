@@ -16,7 +16,7 @@ window.TECHBUILD_CONFIG = {
     "title": "STYLEHUB — Clothing & Online Store",
     "price": 149000,
     "oldPrice": 250000,
-    "minDeposit": 100,
+    "minDeposit": 80000,
     "logo": "assets/clothing-store.svg",
     "cover": "assets/product-covers/stylehub-clothing-online-store-main.jpg",
     "tag": "NEW • Premium fashion store",
