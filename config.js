@@ -12,11 +12,11 @@ window.TECHBUILD_CONFIG = {
   packages: {
   "stylehub": {
     "id": "stylehub",
-    "salesCount": 0,
+    "salesCount": 66,
     "title": "STYLEHUB — Clothing & Online Store",
     "price": 149000,
     "oldPrice": 250000,
-    "minDeposit": 80000,
+    "minDeposit": 100,
     "logo": "assets/clothing-store.svg",
     "cover": "assets/product-covers/stylehub-clothing-online-store-main.jpg",
     "tag": "NEW • Premium fashion store",
