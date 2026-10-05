@@ -12,6 +12,7 @@ window.TECHBUILD_CONFIG = {
   packages: {
   "stylehub": {
     "id": "stylehub",
+    "liveDemoUrl": "https://wizyt78.github.io/Clothing-online-store/",
     "salesCount": 66,
     "title": "STYLEHUB — Clothing & Online Store",
     "price": 149000,
@@ -38,6 +39,7 @@ window.TECHBUILD_CONFIG = {
   },
   "socialmedia": {
     "id": "socialmedia",
+    "liveDemoUrl": "",
     "salesCount": 347,
     "title": "Buy All Social Media Accounts & Foreign Numbers Website",
     "price": 150000,
@@ -62,6 +64,7 @@ window.TECHBUILD_CONFIG = {
   },
   "standard": {
     "id": "standard",
+    "liveDemoUrl": "https://wizyt78.github.io/Elonmusk-Tesla/",
     "salesCount": 137,
     "title": "Tesla Investment Website",
     "price": 150000,
@@ -85,6 +88,7 @@ window.TECHBUILD_CONFIG = {
   },
   "custom": {
     "id": "custom",
+    "liveDemoUrl": "https://wizyt78.github.io/Elonmusk-Tesla/",
     "salesCount": 26,
     "title": "Custom Investment Website",
     "price": 180000,
@@ -108,6 +112,7 @@ window.TECHBUILD_CONFIG = {
   },
   "banking": {
     "id": "banking",
+    "liveDemoUrl": "",
     "salesCount": 43,
     "title": "Banking Website with Admin Dashboard",
     "price": 180000,
@@ -131,6 +136,7 @@ window.TECHBUILD_CONFIG = {
   },
   "loanbanking": {
     "id": "loanbanking",
+    "liveDemoUrl": "",
     "salesCount": 86,
     "title": "Premium Loan & Banking Website",
     "price": 200000,
@@ -159,6 +165,7 @@ window.TECHBUILD_CONFIG = {
   },
   "cars": {
     "id": "cars",
+    "liveDemoUrl": "",
     "salesCount": 238,
     "title": "Car Sales Website",
     "price": 140000,
@@ -182,6 +189,7 @@ window.TECHBUILD_CONFIG = {
   },
   "tracking": {
     "id": "tracking",
+    "liveDemoUrl": "",
     "salesCount": 119,
     "title": "Parcel & Delivery Tracking Website",
     "price": 100000,
@@ -205,6 +213,7 @@ window.TECHBUILD_CONFIG = {
   },
   "clothing": {
     "id": "clothing",
+    "liveDemoUrl": "",
     "salesCount": 386,
     "title": "Clothing & Online Store",
     "price": 157000,
@@ -228,6 +237,7 @@ window.TECHBUILD_CONFIG = {
   },
   "celebrity": {
     "id": "celebrity",
+    "liveDemoUrl": "",
     "salesCount": 189,
     "title": "Custom Celebrity-Inspired Merchandise Store",
     "price": 150000,
@@ -251,6 +261,7 @@ window.TECHBUILD_CONFIG = {
   },
   "truck": {
     "id": "truck",
+    "liveDemoUrl": "",
     "salesCount": 87,
     "title": "Truck Sales Website",
     "price": 160000,
@@ -274,6 +285,7 @@ window.TECHBUILD_CONFIG = {
   },
   "ecommerce": {
     "id": "ecommerce",
+    "liveDemoUrl": "",
     "salesCount": 152,
     "title": "General E-commerce Website",
     "price": 170000,
