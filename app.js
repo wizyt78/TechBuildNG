@@ -81,7 +81,10 @@
             <div class="price-row"><div><span class="old-price">${money(p.oldPrice)}</span><strong>${money(p.price)}</strong><span class="deposit-from">Deposit from ${money(p.minDeposit)}</span></div><span class="save-pill">Save ${money(p.oldPrice-p.price)}</span></div>
             <div class="fixed-price-badge"><span aria-hidden="true">✓</span> FIXED PRICE <span class="fixed-price-separator">·</span> NO BARGAINING</div>
             <div class="sales-count" aria-label="Total sales"><span class="sales-count-label">Total Sales</span><strong>${Number(p.salesCount || 0).toLocaleString("en-NG")}</strong></div>
-            <button class="btn btn-primary btn-full" data-open-product="${p.id}">View package <span>→</span></button>
+            <div class="product-actions">
+              <button class="btn btn-primary" data-open-product="${p.id}">View package <span>→</span></button>
+              <a class="btn btn-demo${p.liveDemoUrl ? "" : " is-placeholder"}" href="${p.liveDemoUrl || "#"}"${p.liveDemoUrl ? ' target="_blank" rel="noopener"' : ' aria-disabled="true" data-live-demo-empty="true"'}>Live Demo <span>↗</span></a>
+            </div>
           </div>
         </article>`).join("");
       const count = qs("#catalog-count");
@@ -179,7 +182,10 @@
           <div class="sales-count sales-count-detail" aria-label="Total sales"><span class="sales-count-label">Total Sales</span><strong>${Number(p.salesCount || 0).toLocaleString("en-NG")}</strong></div>
           <ul class="feature-list feature-large">${p.features.map(f=>`<li>${f}</li>`).join("")}</ul>
           <div class="after-payment"><strong>After payment</strong><p>Send your payment proof through the WhatsApp button so your order can be reviewed and work can get started.</p></div>
-          <a class="btn btn-primary btn-large" href="checkout.html?product=${p.id}">Choose this package <span>→</span></a>
+          <div class="product-actions product-actions-detail">
+            <a class="btn btn-primary btn-large" href="checkout.html?product=${p.id}">View package <span>→</span></a>
+            <a class="btn btn-demo btn-large${p.liveDemoUrl ? "" : " is-placeholder"}" href="${p.liveDemoUrl || "#"}"${p.liveDemoUrl ? ' target="_blank" rel="noopener"' : ' aria-disabled="true" data-live-demo-empty="true"'}>Live Demo <span>↗</span></a>
+          </div>
         </div>
       </div>
       <div class="preview-guide" aria-hidden="true">
@@ -429,5 +435,11 @@ if (wa) wa.style.display = "none";
     }
   }
 
-  header(); footer(); chat(); setupVideo(); renderCatalog(); setupProductModal(); renderVideoGallery(); renderProductDetail(); setupCheckout(); verifySuccess();
+  header(); footer(); chat(); setupVideo(); renderCatalog();
+  document.addEventListener("click", (event) => {
+    const demo = event.target.closest("[data-live-demo-empty]");
+    if (!demo) return;
+    event.preventDefault();
+  });
+  setupProductModal(); renderVideoGallery(); renderProductDetail(); setupCheckout(); verifySuccess();
 })();
