@@ -82,8 +82,8 @@
             <div class="fixed-price-badge"><span aria-hidden="true">✓</span> FIXED PRICE <span class="fixed-price-separator">·</span> NO BARGAINING</div>
             <div class="sales-count" aria-label="Total sales"><span class="sales-count-label">Total Sales</span><strong>${Number(p.salesCount || 0).toLocaleString("en-NG")}</strong></div>
             <div class="product-actions">
-              <button class="btn btn-primary" data-open-product="${p.id}">View package <span>→</span></button>
-              <a class="btn btn-demo${p.liveDemoUrl ? "" : " is-placeholder"}" href="${p.liveDemoUrl || "#"}"${p.liveDemoUrl ? ' target="_blank" rel="noopener"' : ' aria-disabled="true" data-live-demo-empty="true"'}>Live Demo <span>↗</span></a>
+              <button class="btn btn-primary" data-open-product="${p.id}">View Package <svg class="btn-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></button>
+              <a class="btn btn-demo${p.liveDemoUrl ? "" : " is-placeholder"}" href="${p.liveDemoUrl || "#"}"${p.liveDemoUrl ? ' target="_blank" rel="noopener"' : ' aria-disabled="true" data-live-demo-empty="true"'}>Live Demo <svg class="btn-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5"/><path d="M13 11v4H5V7h4"/></svg></a>
             </div>
           </div>
         </article>`).join("");
@@ -183,8 +183,8 @@
           <ul class="feature-list feature-large">${p.features.map(f=>`<li>${f}</li>`).join("")}</ul>
           <div class="after-payment"><strong>After payment</strong><p>Send your payment proof through the WhatsApp button so your order can be reviewed and work can get started.</p></div>
           <div class="product-actions product-actions-detail">
-            <a class="btn btn-primary btn-large" href="checkout.html?product=${p.id}">View package <span>→</span></a>
-            <a class="btn btn-demo btn-large${p.liveDemoUrl ? "" : " is-placeholder"}" href="${p.liveDemoUrl || "#"}"${p.liveDemoUrl ? ' target="_blank" rel="noopener"' : ' aria-disabled="true" data-live-demo-empty="true"'}>Live Demo <span>↗</span></a>
+            <a class="btn btn-primary btn-large" href="checkout.html?product=${p.id}">View Package <svg class="btn-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
+            <a class="btn btn-demo btn-large${p.liveDemoUrl ? "" : " is-placeholder"}" href="${p.liveDemoUrl || "#"}"${p.liveDemoUrl ? ' target="_blank" rel="noopener"' : ' aria-disabled="true" data-live-demo-empty="true"'}>Live Demo <svg class="btn-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5"/><path d="M13 11v4H5V7h4"/></svg></a>
           </div>
         </div>
       </div>
